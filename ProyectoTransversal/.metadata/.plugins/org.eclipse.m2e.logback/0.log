@@ -1,0 +1,21 @@
+2025-02-12 18:53:11,456 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2025-02-12 18:59:45,346 [Worker-11: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.CRFLOSKYCASINO:CRFLOSKYCASINO:0.0.1-SNAPSHOT @ C:\Users\sergi\Documents\ProyectoTransversal\CRFLOSKYCASINO\pom.xml.
+2025-02-12 18:59:49,278 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CRFLOSKYCASINO/src/main/java
+2025-02-12 18:59:49,282 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CRFLOSKYCASINO/src/main/resources
+2025-02-12 18:59:49,291 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CRFLOSKYCASINO/src/main/resources
+2025-02-12 18:59:49,300 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CRFLOSKYCASINO/src/test/java
+2025-02-12 18:59:49,301 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CRFLOSKYCASINO/src/test/resources
+2025-02-12 18:59:51,011 [Worker-11: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 9 sec
+2025-02-12 18:59:51,018 [Worker-11: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2025-02-12 18:59:51,494 [Worker-11: Import Getting Started Content] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.CRFLOSKYCASINO:CRFLOSKYCASINO:0.0.1-SNAPSHOT @ C:\Users\sergi\Documents\ProyectoTransversal\CRFLOSKYCASINO\pom.xml.
+2025-02-12 18:59:52,216 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CRFLOSKYCASINO/src/main/java
+2025-02-12 18:59:52,217 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CRFLOSKYCASINO/src/main/resources
+2025-02-12 18:59:52,218 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CRFLOSKYCASINO/src/main/resources
+2025-02-12 18:59:52,218 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /CRFLOSKYCASINO/src/test/java
+2025-02-12 18:59:52,220 [Worker-11: Import Getting Started Content] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /CRFLOSKYCASINO/src/test/resources
+2025-02-12 18:59:52,665 [Worker-11: Import Getting Started Content] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0,00 sec, refresh facades takes 1,00 sec, update config takes 0,00 sec 
+2025-02-12 18:59:53,308 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-12 18:59:53,325 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-12 18:59:53,332 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\sergi\Documents\ProyectoTransversal\CRFLOSKYCASINO\src\test\resources
+2025-02-12 19:03:28,897 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-02-12 19:04:52,351 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
