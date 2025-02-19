@@ -53,6 +53,19 @@ document.getElementById("registroForm").addEventListener('submit',function(event
                 } else {
                     showErrorModal("El formato del DNI es incorrecto.");
                 }
+    
+    let username = document.getElementById("username").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let pwd = document.getElementById("pwd").value.trim();
+    let nombre = document.getElementById("nombre").value.trim();
+    let apellido = document.getElementById("apellido").value.trim();
+    let fechaNacimiento = document.getElementById("fechaNacimiento").value;
+
+    // Verifica que los valores no sean vacíos
+    if (!username || !email || !pwd || !nombre || !apellido || !fechaNacimiento) {
+        showErrorModal("Todos los campos son obligatorios.");
+        return;
+    }
     //CREACIÓN JSON CON DATOS DEL REGISTRO
     var registroData={
         username:username,
