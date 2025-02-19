@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Family Guy Game</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/assets/Favicon.png}">
+    <link rel="shortcut icon" th:href="@{/assets/Favicon.png}">
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/style.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/cambiarIdioma.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/modalApuestaMaxima.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/bonos.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/depositar-retirar.css}'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img th:src="@{/assets/Logo_F_CR.png}" alt="Logo"/>
+        </div>
+
+        <div class="titulo">
+            <img th:src="@{/assets/logo.png}" alt="Game Logo"/>
+        </div>
+
+        <div class="reloj">
+            <span id="horaActual"></span>
+        </div>
+
+        <div class="jackpot">
+            <button id="jackpotBtn"> <i class="fas fa-gem"></i> Compra Bonos </button>
+        </div>
+
+        <div class="tiradas">
+            <strong id="tiradasJackpot"></strong><span id="tiradas"></span>
+        </div>
+
+        <div class="botones">
+            <button class="btn depositar" id="depositarBtn">Depositar</button>
+            <button class="btn retirar" id="retirarBtn">Retirar</button>
+        </div>
+
+        <marquee>
+            <h3>Juega con Responsabilidad +18</h3>
+        </marquee>
+    </header>
+
+    <div class="tragaperras-container">
+        <div class="combinaciones">
+            <h2>Posibles Combinaciones</h2>
+            <ul>
+                <li th:each="combinacion : ${combinaciones}">
+                    <img th:src="@{${combinacion.imagen}}" alt="combinacion" />
+                    <p th:text="${combinacion.premio} + '€'"></p>
+                    <p>Creditos</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tableroSlot">
+            <div class="celda" th:each="simbolo : ${tablero}">
+                <img th:src="@{${simbolo.imagen}}" th:alt="${simbolo.nombre}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-tablero">
+        <audio id="musicaFondo" th:src="@{/assets/ambiente.mp3}" autoplay loop></audio>
+        <div class="volumen">
+            <i id="iconoMusica" class="fas fa-volume-up"></i>
+            <input type="range" id="controlVolumen" min="0" max="1" value="0.5" step="0.1" />
+        </div>
+
+        <div class="saldo">
+            <p>Saldo:</p> <span id="saldo">0</span>
+            <p>créditos</p>
+        </div>
+    </div>
+
+    <script th:src='@{/index.js}'></script>
+    <script th:src="@{/traductor.js}"></script>
+    <script th:src="@{/reloj.js}"></script>
+    <script th:src="@{/modoColorBlancoGris.js}"></script>
+    <script th:src="@{/musica.js}"></script>
+    <script th:src="@{/verificarCombinaciones.js}"></script>
+</body>
+</html>

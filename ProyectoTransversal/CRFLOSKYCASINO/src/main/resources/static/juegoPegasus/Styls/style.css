@@ -1,0 +1,510 @@
+/* Reset general de márgenes y paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html, body {
+  font-family: Arial, sans-serif;
+  background-color: #2a2a2a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Evita barras de desplazamiento */
+}
+/*-----------------------------------------------------------------------------------------------*/
+/* Header */
+header {
+  background-color: #222;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+header .logo img {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #0099ff;
+}
+
+header .titulo {
+  flex: 1;
+  text-align: center;
+}
+
+header .titulo .p1 {
+  color: #333333;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #10cf10, #0099ff);
+  color: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(255, 78, 80, 0.2);
+  padding: 10px 15px;
+  border: 1px solid #0099ff;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+header .titulo .p1:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 4px 8px rgba(2, 214, 41, 0.4);
+}
+
+/* Estilo para mostrar el saldo */
+header .saldo {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 5%;
+}
+
+header .botones {
+  display: flex;
+  gap: 20px;
+}
+
+header .botones .btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+header .depositar {
+  background-color: #4caf50;
+  color: white;
+}
+
+header .retirar {
+  background-color: #f44336;
+  color: white;
+}
+
+header .depositar:hover {
+  background-color: #45a049;
+}
+
+header .retirar:hover {
+  background-color: #e53935;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+main {
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.contenedor-juego {
+  background-image: url('../Assets/Fondo-6.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  
+}
+
+.multiplicador {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px; /* Aumento del tamaño de la fuente */
+  color: #0099ff;
+  font-weight: bold; /* Hacer el texto más grueso */
+  text-shadow: 0 0 10px rgba(223, 48, 246, 0.6), 0 0 20px rgba(223, 48, 246, 0.6); /* Efecto de sombra brillante */
+  letter-spacing: 2px; /* Espaciado entre las letras */
+  animation: pulsar 1.5s infinite alternate; /* Animación de pulsado */
+}
+
+/* Animación de pulsado */
+@keyframes pulsar {
+  0% {
+    transform: translateX(-50%) scale(1);
+    color: #0a578b;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2); /* Aumenta el tamaño ligeramente */
+    color: #00ccff;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    color: #0099ff;
+  }
+}
+
+.multiplicador-animado {
+  display: inline-block;
+  animation: bounce 0.5s infinite;
+}
+
+/* Estilos del Pegaso */
+#pegaso {
+  position: absolute;
+  bottom: 20px; /* Ajusta la distancia entre el Pegaso y el footer */
+  transform: translateX(-5%); /* Asegura que esté centrado */
+  width: 250px;
+  height: 150px;
+  transition: left 10s linear; /* Animación de movimiento de izquierda a derecha */
+  visibility: hidden; /* Inicialmente oculto */
+  z-index: 999; /* Para que se quede por encima de otros elementos */
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Para no interferir con el pegaso si se coloca fuera */
+}
+
+/* General Styles */
+.game-footer {
+  background: #1e1e2f;
+  color: #fff;
+  padding: 20px 20px 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-footer h4 {
+  color: #ffcc00;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.multiplicadores-list {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.multiplicadores-list li {
+  font-size: 16px;
+  background-color: #2a2a3f;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 250px;
+}
+
+.input-group input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.buttons button {
+  background-color: #ffcc00;
+  border: none;
+  color: #1e1e2f;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #e6b800;
+}
+
+.buttons button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+/*----------------------------------------------------------------------*/
+    /*ESTILOS PARA EL MODAL DEL PREMIO*/
+
+    /* Estilos para el Modal de Premio */
+.modal-premio {
+  display: none; /* Ocultar el modal por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out; /* Animación de entrada */
+}
+
+/* Animación de entrada para el modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilo para el contenido del modal */
+.modal-premio .modal-content-premio {
+  background-color: #1c1c1c; /* Fondo oscuro con un toque más moderno */
+  padding: 30px;
+  border-radius: 15px; /* Bordes más redondeados */
+  text-align: center;
+  width: 500px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+  animation: zoomIn 0.5s ease-out; /* Animación de zoom al aparecer */
+}
+
+/* Animación de zoom para el contenido */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Estilo del botón de cerrar */
+.modal-premio .close-premio {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.modal-premio .close-premio:hover {
+  transform: scale(1.2); /* Efecto de hover para el botón de cerrar */
+}
+
+/* Ajuste del GIF de premio */
+.modal-premio #gifPremio {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados para el GIF */
+  margin-bottom: 20px;
+}
+
+/* Estilos para el texto dentro del modal */
+.modal-premio h2 {
+  color: #ffd700; /* Color dorado para el título */
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.modal-premio #mensajePremio {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modal-premio #detallesPremio {
+  color: #ddd;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.modal-premio #totalGanado {
+  color: #28a745; /* Verde para el total ganado */
+  font-size: 20px;
+  font-weight: bold;
+}
+ /*----------------------------------------------------------------------------------------*/
+    /*Estilo para los modales de jugar y para el input*/
+  
+    .modal-apuesta {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content-apuesta {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    .btn-close-apuesta {
+      margin-top: 10px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .btn-close-apuesta:hover {
+      background-color: #a71d2a;
+    }
+
+/*-----------------------------------------------------------------------------------*/
+
+.modal-game {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-game {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-close-game {
+  margin-top: 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-close-game:hover {
+  background-color: #a71d2a;
+}
+
+/*---------------------------------------------------------------------------------------------------------*/
+/* Estilos para el modal de derrota */
+.modal-derrota {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 9999; /* Por encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+}
+
+.modal-derrota-contenido {
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: modalAparecer 0.3s ease-in-out;
+}
+
+.cerrar-modal-derrota {
+  color: #888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cerrar-modal-derrota:hover,
+.cerrar-modal-derrota:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+.titulo-modal-derrota {
+  color: #e74c3c;
+  font-size: 2em;
+  margin: 0 0 10px 0;
+}
+
+.mensaje-modal-derrota {
+  color: #555;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.gif-modal-derrota {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Animación de aparición del modal */
+@keyframes modalAparecer {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+

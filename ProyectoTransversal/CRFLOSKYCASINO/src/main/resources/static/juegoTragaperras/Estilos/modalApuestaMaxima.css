@@ -1,0 +1,35 @@
+.modal-1 {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px); /* Añade desenfoque al fondo */
+}
+
+.modal-ApuestaMaxima {
+    background-color: #222;
+    color: #fff;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    font-family: 'Arial', sans-serif;
+}
+
+.cerrarApuestaMaxima {
+    color: #bbb;
+    font-size: 24px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+.cerrarApuestaMaxima:hover {
+    color: #fff;
+}
