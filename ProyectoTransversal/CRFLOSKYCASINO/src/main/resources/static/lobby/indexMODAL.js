@@ -6,6 +6,19 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
 }
 
+function showErrorModal(mensaje) {
+    let errorModal = document.getElementById("errorModal");
+    let errorText = document.getElementById("error");
+
+    errorText.innerText = mensaje; // Cambia el texto del modal con el mensaje recibido
+    errorModal.style.display = "flex"; // Muestra el modal
+
+    // Cierra el modal después de 3 segundos
+    setTimeout(() => {
+        errorModal.style.display = "none";
+    }, 3000);
+}
+
 const btnRegistro = document.getElementById("registro")
 document.getElementById("registroForm").addEventListener('submit',function(event){
     event.preventDefault();
