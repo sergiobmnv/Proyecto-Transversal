@@ -53,7 +53,7 @@ document.getElementById("registroForm").addEventListener('submit',function(event
     console.log(JSON.stringify(registroData));	
     $.ajax({
         type: "POST",
-        url: "/usuarios/registro",
+        url: "/usuario/registro",
         contentType: "application/json",
         data: JSON.stringify(registroData),
         success: function(response) {
