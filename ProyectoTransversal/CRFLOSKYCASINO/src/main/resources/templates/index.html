@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>CRFLOKSY Casino</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='lobby/index.css'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/static/lobby/index.css}'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" th:href="@{/static/assets/logos/ficha-de-casino.png}">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="assets/logos/Logo_F_CR.png" alt="Logo">
+            <img th:src="@{/static/assets/logos/Logo_F_CR.png}" alt="Logo">
         </div>
         <nav class="nav-links">
             <!-- Aquí puedes añadir enlaces en el futuro -->
         </nav>
         <div class="buttons">
-            <button class="button-entrar" role="button" onclick="openModal('loginModal')"><i class="fa-regular fa-user"></i> ENTRAR</button>
-            <button class="button-registrate" role="button" onclick="openModal('registerModal')"><i class="fa-solid fa-key"></i> REGÍSTRATE</button>
+            <button class="button-entrar" role="button" onclick="openModal('loginModal')">
+                <i class="buttonEntrar"></i> ENTRAR
+            </button>
+            <button class="button-registrate" role="button" onclick="openModal('registerModal')">
+                <i class="buttonRegistrate"></i> REGÍSTRATE
+            </button>
         </div>
     </header>
     
     <div class="marque">
-        <marquee>&copy CRFLOKSY CASINO // JUEGA CON RESPONSABILIDAD +18</marquee>
+        <marquee>&copy; CRFLOKSY CASINO // JUEGA CON RESPONSABILIDAD +18</marquee>
     </div>
-
 
     <!-- Modal de Inicio de Sesión -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
+            <img th:src="@{/static/assets/logos/Logo_F_CR_2.png}" alt="Logo" class="modal-logo">
             <h2>Iniciar Sesión</h2>
             <input type="text" placeholder="Usuario" /><br><br>
             <input type="password" placeholder="Contraseña" /><br><br>
@@ -43,40 +47,40 @@
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <form id="registroForm">
-            <span class="close" onclick="closeModal('registerModal')">&times;</span>
-            <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
-            <h2>Registro</h2>
-            <div class="input-group">
-                <input type="text" placeholder="Usuario" id="username" name="username" required />
-                <input type="email" placeholder="Correo" id="email" name="email" required />
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Contraseña" id="pwd" name="pwd" required />
-                <input type="password" placeholder="Confirma tu contraseña." id="pwd2" placeholder="Confirmar contraseña" required>
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Nombre" id="nombre" name="nombre" required />
-                <input type="text" placeholder="Primer Apellido" id="apellido" name="apellido" required />
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="DNI" id="dni" name="dni" maxlength="9" required />
-                <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" name="fechaNacimiento" required />
-            </div>
-            <div id="exitoModal" class="modal"> 
-                <div class="modalContent">
-                    <h5>Usuario registrado con éxito.</h5>
-                    <button class="close" id="btn-cerrar">CERRAR</button>
+                <span class="close" onclick="closeModal('registerModal')">&times;</span>
+                <img th:src="@{/static/assets/logos/Logo_F_CR_2.png}" alt="Logo" class="modal-logo">
+                <h2>Registro</h2>
+                <div class="input-group">
+                    <input type="text" placeholder="Usuario" id="username" name="username" required />
+                    <input type="email" placeholder="Correo" id="email" name="email" required />
                 </div>
-            </div>
-            <div id="errorModal" class="modal"> 
-                <div class="modalContent">
-                    <h5 id="error">Ha ocurrido un error.</h5>
+                <div class="input-group">
+                    <input type="password" placeholder="Contraseña" id="pwd" name="pwd" required />
+                    <input type="password" placeholder="Confirma tu contraseña" id="pwd2" required>
                 </div>
-            </div>
-            <button class="button-register" id="registro" type="submit">Registrarse</button>
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre" id="nombre" name="nombre" required />
+                    <input type="text" placeholder="Primer Apellido" id="apellido" name="apellido" required />
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="DNI" id="dni" name="dni" maxlength="9" required />
+                    <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" name="fechaNacimiento" required />
+                </div>
+                <div id="exitoModal" class="modal"> 
+                    <div class="modalContent">
+                        <h5>Usuario registrado con éxito.</h5>
+                        <button class="close" id="btn-cerrar">CERRAR</button>
+                    </div>
+                </div>
+                <div id="errorModal" class="modal"> 
+                    <div class="modalContent">
+                        <h5 id="error">Ha ocurrido un error.</h5>
+                    </div>
+                </div>
+                <button class="button-register" id="registro" type="submit">Registrarse</button>
             </form>
         </div>
     </div>
-    <script src="lobby/indexMODAL.js"></script>
+    <script th:src="@{/static/lobby/indexMODAL.js}"></script>
 </body>
 </html>

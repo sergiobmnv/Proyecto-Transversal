@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Olympus Game</title>
+    
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Styls/style.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Styls/modalesSaldoError.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Styls/modalBotonesHeader.css}'>
+    <link rel="icon" type="image/png" th:href="@{/Assets/Icono-Pegaso.png}">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <img th:src="@{/Assets/Logo.png}" alt="Logo del Casino">
+        </div>
+
+        <div class="titulo">
+          <p class="p1">Olympus Game</p>
+        </div>
+
+        <div class="saldo">
+          <p id="saldo">Saldo: 0.0 €</p> 
+        </div>
+
+        <div class="botones">
+          <button class="btn depositar" id="depositarBtn">Depositar</button>
+          <button class="btn retirar" id="retirarBtn">Retirar</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="contenedor-juego">
+          <div class="multiplicador">
+            <h2 id="valorMultiplicador" class="multiplicador-animado">1.00x</h2>
+          </div>
+
+          <div class="game-area">
+            <img id="pegaso" th:src="@{/Assets/Pegaso.gif}" alt="Pegaso" class="pegaso-gif">
+          </div>
+        </div>
+    </main>
+  
+    <footer class="game-footer">
+        <div class="footer-container">
+          
+          <div class="multiplicadores">
+            <h4>Multiplicadores Anteriores</h4>
+            <ul class="multiplicadores-list">
+              <li>1.23x</li>
+              <li>2.67x</li>
+            </ul>
+          </div>
+      
+          <div class="game-controls">
+            <div class="input-group">
+              <label for="apuesta">Apuesta:</label>
+              <input type="number" id="apuesta" placeholder="Ingrese cantidad" />
+            </div>
+      
+            <div class="buttons">
+              <button id="startBtn" class="btn">Jugar</button>
+              <button id="stopBtn" class="btn">Parar</button>
+            </div>
+          </div>
+        </div>
+    </footer>
+
+    <!-- Modales -->
+    <div id="depositoModal" class="modal-depositar">
+      <div class="modal-content-depositar">
+          <span class="close">&times;</span>
+          <h2>Depósito</h2>
+          <label for="cantidadDeposito">Ingresa la cantidad a depositar:</label>
+          <input type="number" id="cantidadDeposito" min="1" placeholder="Cantidad">
+          <button type="button" id="confirmarDeposito"> Confirmar </button>
+      </div>
+    </div>
+
+    <div id="retiroModal" class="modal-retiro">
+      <div class="modal-content-retiro">
+          <span class="close-retirar">&times;</span>
+          <h2>Retiro</h2>
+          <label for="cantidadRetiro">Ingresa la cantidad a retirar:</label>
+          <input type="number" id="cantidadRetiro" min="1" placeholder="Cantidad">
+          <button id="confirmarRetiro">Confirmar</button>
+      </div>
+    </div>
+
+    <div id="modalErrorRetiro" class="modal-retiro">
+      <div class="modal-content-retiro">
+          <span class="close-retirar">&times;</span>
+          <h2>Error</h2>
+          <p id="mensajeErrorRetiro"></p>
+      </div>
+    </div>
+
+    <div id="modalErrorDeposito" class="modal-deposito">
+      <div class="modal-content-deposito">
+          <span class="close-deposito">&times;</span>
+          <h2>Error</h2>
+          <p id="mensajeErrorDeposito"></p>
+      </div>
+    </div>
+
+    <div id="modalExitoDeposito" class="modal-deposito">
+      <div class="modal-content-deposito">
+          <span class="close-deposito">&times;</span>
+          <h2>Depósito Realizado</h2>
+          <p>Tu depósito se ha realizado con éxito.</p>
+      </div>
+    </div>
+
+    <div id="modalPremio" class="modal-premio">
+      <div class="modal-content-premio">
+        <span class="close-premio">&times;</span>
+        <img id="gifPremio" th:src="@{/Assets/Gif-Premio.gif}" alt="Premio ganado">
+        <h2>¡Felicidades!</h2>
+        <p id="mensajePremio">¡Has ganado!</p>
+        <p id="detallesPremio">Multiplicador: <span id="multiplicadorPremio">1.00x</span></p>
+        <p id="totalGanado">Total Ganado: €<span id="premioTotal">0.00</span></p>
+      </div>
+    </div>
+
+    <div id="modalDerrotaUnico" class="modal-derrota">
+      <div class="modal-derrota-contenido">
+        <span class="cerrar-modal-derrota">&times;</span>
+        <h2 class="titulo-modal-derrota">¡Perdiste!</h2>
+        <p class="mensaje-modal-derrota">El meteorito cayó y perdiste tu apuesta. ¡Inténtalo de nuevo!</p>
+        <img th:src="@{/Assets/gif-derrota.gif}" alt="GIF de derrota" class="gif-modal-derrota">
+      </div>
+    </div>
+
+    <script th:src='@{/index.js}'></script>
+    <script th:src="@{/respuestaAJAX.js}"></script>
+</body>
+</html>
