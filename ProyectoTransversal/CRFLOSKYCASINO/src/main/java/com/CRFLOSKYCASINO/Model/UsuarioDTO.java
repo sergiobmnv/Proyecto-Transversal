@@ -1,6 +1,6 @@
 package com.CRFLOSKYCASINO.Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class UsuarioDTO {
     private String username;
