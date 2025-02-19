@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>CASINO / CRFLOSKY</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='lobby/index.css'>
+    <link rel="icon" type="image/png" href="assets/logos/ficha-de-casino.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -17,24 +20,35 @@
             <!-- Aquí puedes añadir enlaces en el futuro -->
         </nav>
         <div class="buttons">
-            <button class="button-entrar" role="button" onclick="openModal('loginModal')"><i class="fa-regular fa-user"></i> ENTRAR</button>
-            <button class="button-registrate" role="button" onclick="openModal('registerModal')"><i class="fa-solid fa-key"></i> REGÍSTRATE</button>
+            <button class="button-entrar" role="button" onclick="openModal('loginModal')"><i
+                    class="fa-regular fa-user"></i> ENTRAR</button>
+            <button class="button-registrate" role="button" onclick="openModal('registerModal')"><i
+                    class="fa-solid fa-key"></i> REGÍSTRATE</button>
         </div>
     </header>
-    
+
     <div class="marque">
         <marquee>&copy CRFLOKSY CASINO // JUEGA CON RESPONSABILIDAD +18</marquee>
     </div>
 
 
     <!-- Modal de Inicio de Sesión -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
+    <div id="loginModal" class="modalLogin">
+        <div class="modal-contentLogin">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
             <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
             <h2>Iniciar Sesión</h2>
-            <input type="text" placeholder="Usuario" /><br><br>
-            <input type="password" placeholder="Contraseña" /><br><br>
+
+            <div class="input-groupUsuario">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" placeholder="Ingresa tu usuario" />
+            </div>
+
+            <div class="input-groupUsuario">
+                <label for="password" title="La contraseña debe contener mayúsculas y más de 10 caractéres">Contraseña</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" />
+            </div>
+
             <button class="button-login">Entrar</button>
         </div>
     </div>
@@ -43,41 +57,71 @@
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <form id="registroForm">
-            <span class="close" onclick="closeModal('registerModal')">&times;</span>
-            <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
-            <h2>Registro</h2>
-            <div class="input-group">
-                <input type="text" placeholder="Usuario" id="username" name="username" required />
-                <input type="email" placeholder="Correo" id="email" name="email" required />
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Contraseña" id="pwd" name="pwd" required />
-                <input type="password" placeholder="Confirma tu contraseña." id="pwd2" required>
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Nombre" id="nombre" name="nombre" required />
-                <input type="text" placeholder="Primer Apellido" id="apellido" name="apellido" required />
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="DNI" id="dni" name="dni" maxlength="9" required />
-                <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" name="fechaNacimiento" required />
-            </div>
-            <div id="exitoModal" class="modal"> 
-                <div class="modalContent">
-                    <h5>Usuario registrado con éxito.</h5>
-                    <button class="close" id="btn-cerrar">CERRAR</button>
+                <span class="close" onclick="closeModal('registerModal')">&times;</span>
+                <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
+                <h2>REGISTRO</h2>
+                <div class="input-group">
+                    <div class="input-container">
+                        <label for="username">Usuario</label>
+                        <input type="text" placeholder="Usuario" id="username" name="usuario" required />
+                    </div>
+                    <div class="input-container">
+                        <label for="email">Correo</label>
+                        <input type="email" placeholder="Correo" id="email" name="correo" required />
+                    </div>
                 </div>
-            </div>
-            <div id="errorModal" class="modal"> 
-                <div class="modalContent">
-                    <h5 id="error">Ha ocurrido un error.</h5>
+
+                <div class="input-group">
+                    <div class="input-container">
+                        <label for="pwd">Contraseña</label>
+                        <input type="password" placeholder="Contraseña" id="pwd" name="contrasenia" required />
+                    </div>
+                    <div class="input-container">
+                        <label for="pwd2">Confirma tu contraseña</label>
+                        <input type="password" placeholder="Confirma tu contraseña." id="pwd2" required>
+                    </div>
                 </div>
-            </div>
-            <button class="button-register" id="registro" type="submit">Registrarse</button>
+
+                <div class="input-group">
+                    <div class="input-container">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" placeholder="Nombre" id="nombre" name="nombre del usuario" required />
+                    </div>
+                    <div class="input-container">
+                        <label for="apellido">Primer Apellido</label>
+                        <input type="text" placeholder="Primer Apellido" id="apellido" name="apellido del usuario"
+                            required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-container">
+                        <label for="dni">DNI</label>
+                        <input type="text" placeholder="DNI" id="dni" name="dni" maxlength="9" required />
+                    </div>
+                    <div class="input-container">
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                        <input type="date" id="fechaNacimiento" name="fecha Nacimiento del usuario" required />
+                    </div>
+                </div>
+
+                <!--Modales de confirmacion-->
+                <div id="exitoModal" class="modalExito">
+                    <div class="modalExitoContent">
+                        <h5 id="exito">Usuario registrado con éxito.</h5>
+                    </div>
+                </div>
+                <div id="errorModal" class="modalError">
+                    <div class="modalErrorContent">
+                        <h5 id="error">Ha ocurrido un error.</h5>
+                    </div>
+                </div>
+                <button class="button-register" id="registro" type="submit">Registrarse</button>
             </form>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="lobby/indexMODAL.js"></script>
 </body>
+
 </html>
