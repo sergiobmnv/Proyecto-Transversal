@@ -12,13 +12,12 @@ import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
-public class UsuarioServiceImplement {
-    @Autowired
-    UsuarioService usuarioService;
-
+public class UsuarioServiceImplement implements UsuarioService {
+   
     @Autowired
     UsuarioRepository usuarioRepository;
 
+    @Override
     public UsuarioEntity registrarUsuario(UsuarioDTO usuario){
         UsuarioEntity usuarioE = new UsuarioEntity();
         usuarioE.setUsername(usuario.getNombre());
