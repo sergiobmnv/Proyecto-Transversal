@@ -77,4 +77,16 @@ public class UsuarioDTO {
 	public void setVip(boolean isVip) {
 		this.isVip = isVip;
 	}
+
+	@Override
+	public String toString() {
+    return "UsuarioDTO{" +
+            "username='" + username + '\'' +
+            ", pwd='" + pwd + '\'' +
+            ", email='" + email + '\'' +
+            ", nombre='" + nombre + '\'' +
+            ", apellido='" + apellido + '\'' +
+            ", fechaNacimiento='" + fechaNacimiento + '\'' +
+            '}';
+	}
 }
