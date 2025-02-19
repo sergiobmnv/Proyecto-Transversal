@@ -1,6 +1,6 @@
 package com.CRFLOSKYCASINO.Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class UsuarioDTO {
     private String username;
@@ -13,6 +13,8 @@ public class UsuarioDTO {
     private double monedero;
     private double saldo;
     private boolean isVip;
+
+	public UsuarioDTO() {}
 
     //GETTERS Y SETTERS
     public String getUsername() {
@@ -74,5 +76,17 @@ public class UsuarioDTO {
 	}
 	public void setVip(boolean isVip) {
 		this.isVip = isVip;
+	}
+
+	@Override
+	public String toString() {
+    return "UsuarioDTO{" +
+            "username='" + username + '\'' +
+            ", pwd='" + pwd + '\'' +
+            ", email='" + email + '\'' +
+            ", nombre='" + nombre + '\'' +
+            ", apellido='" + apellido + '\'' +
+            ", fechaNacimiento='" + fechaNacimiento + '\'' +
+            '}';
 	}
 }
