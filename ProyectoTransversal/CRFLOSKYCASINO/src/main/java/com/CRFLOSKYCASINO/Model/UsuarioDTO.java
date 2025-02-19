@@ -14,6 +14,8 @@ public class UsuarioDTO {
     private double saldo;
     private boolean isVip;
 
+	public UsuarioDTO() {}
+
     //GETTERS Y SETTERS
     public String getUsername() {
 		return username;

@@ -25,6 +25,7 @@ public class UsuarioController {
     
     @PostMapping("/registro")
     public String registrarUsuario(@RequestBody UsuarioDTO usuario){
+        System.out.println("Usuario: " +usuario);
         usuarioService.registrarUsuario(usuario);
         return "USUARIO REGISTRADO CORRECTAMENTE";
     }
