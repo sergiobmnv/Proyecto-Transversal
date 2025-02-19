@@ -25,6 +25,7 @@ public class UsuarioServiceImplement implements UsuarioService {
         usuarioE.setEmail(usuario.getEmail());
         usuarioE.setNombre(usuario.getNombre());
         usuarioE.setApellido(usuario.getApellido());
+        usuarioE.setDni(usuario.getDni());
         usuarioE.setFecha_nacimiento(usuario.getFechaNacimiento());
         usuarioE.setMonedero(0);
         usuarioE.setSaldo(0);
