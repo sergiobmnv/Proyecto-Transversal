@@ -6,6 +6,18 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
 }
 
+// Función para mostrar el modal
+function mostrarModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.classList.add('show');
+}
+
+// Función para ocultar el modal
+function ocultarModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.classList.remove('show');
+}
+
 function showErrorModal(mensaje) {
     let errorModal = document.getElementById("errorModal");
     let errorText = document.getElementById("error");
@@ -16,6 +28,19 @@ function showErrorModal(mensaje) {
     // Cierra el modal después de 3 segundos
     setTimeout(() => {
         errorModal.style.display = "none";
+    }, 3000);
+}
+
+function showExitoModal(mensaje) {
+    let exitoModal = document.getElementById("exitoModal");
+    let exitoText = document.getElementById("exito");
+
+    exitoText.innerText = mensaje; // Cambia el texto del modal con el mensaje recibido
+    exitoModal.style.display = "flex"; // Muestra el modal
+
+    // Cierra el modal después de 3 segundos
+    setTimeout(() => {
+        exitoModal.style.display = "none";
     }, 3000);
 }
 
@@ -79,6 +104,7 @@ document.getElementById("registroForm").addEventListener('submit',function(event
         data: JSON.stringify(registroData),
         success: function(response) {
             console.log("Respuesta del servidor:", response);
+            showExitoModal(response);
         },
         error: function(error) {
             console.error("Error en la solicitud AJAX:", error);
