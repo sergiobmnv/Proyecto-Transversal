@@ -25,11 +25,10 @@ document.getElementById("registroForm").addEventListener('submit',function(event
                     showErrorModal("Las contraseñas no coinciden.");
                 }
     var fechaNacimiento = document.getElementById("fechaNacimiento").value;
-    var edad = new Date(fechaNacimiento);
-    edad = edad.getFullYear();
-    var hoy = new Date.getFullYear();
+    var edad = new Date(fechaNacimiento).getFullYear();
+    var hoy = new Date().getFullYear(); 
         //COMPROBACIÓN EL USUARIO ES MAYOR DE 18 
-                if((hoy-edad)>18){
+                if((hoy-edad)>=18){
                     edad=true;
                 }else{
                     showErrorModal("Queda prohibido el acceso a menores.");
