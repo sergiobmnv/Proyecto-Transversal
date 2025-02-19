@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='header.css'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/menuRegistrado/menuRegistrado.css}'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="Logo_F_CR.png" alt="Logo">
+            <img th:src="@{/Logo_F_CR.png}" alt="Logo">
         </div>
         <nav class="nav-links">
             <!-- Aquí puedes añadir enlaces en el futuro -->
@@ -19,27 +19,15 @@
     </header>
     
     <div class="marque">
-        <marquee>&copy CRFLOKSY CASINO // JUEGA CON RESPONSABILIDAD +18</marquee>
+        <marquee>&copy; CRFLOKSY CASINO // JUEGA CON RESPONSABILIDAD +18</marquee>
     </div>
 
     <!-- Sección de juegos -->
     <section class="juegos">
-        <div class="juego">
-            <a href="juego1.html">
-                <img src="slots.png" alt="Juego 1">
-                <h3>Family Guy Game</h3>
-            </a>
-        </div>
-        <div class="juego">
-            <a href="juego2.html">
-                <img src="dino-fondo-juego.png" alt="Juego 2">
-                <h3>Dino</h3>
-            </a>
-        </div>
-        <div class="juego">
-            <a href="juego3.html">
-                <img src="Lucky-Gold-Miner.png" alt="Juego 3">
-                <h3>Minas Game Vip</h3>
+        <div class="juego" th:each="juego : ${juegos}">
+            <a th:href="@{${juego.url}}">
+                <img th:src="@{${juego.imagen}}" th:alt="${juego.nombre}">
+                <h3 th:text="${juego.nombre}"></h3>
             </a>
         </div>
     </section>
@@ -49,7 +37,7 @@
             
             <!-- Logo y Copyright -->
             <div class="footer-section logo-section">
-                <img src="Logo_FCR_2.png" alt="CR Flosky Casino" class="footer-logo">
+                <img th:src="@{/Logo_FCR_2.png}" alt="CR Flosky Casino" class="footer-logo">
                 <p class="copyright">©2025 CrFloskyCasino Online</p>
             </div>
 
@@ -57,17 +45,17 @@
             <div class="footer-section social-section">
                 <h3>Redes Sociales</h3>
                 <div class="social-icons">
-                    <a href="https://x.com/twitter?lang=es&mx=2"><img src="Twitter-Icon.png" alt="Twitter"></a>
-                    <a href="https://www.instagram.com/accounts/login/"><img src="instagram-Icon.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/login/?locale=es_ES"><img src="facebook-Icon.png" alt="Facebook"></a>
+                    <a href="https://x.com/twitter?lang=es&mx=2"><img th:src="@{/Twitter-Icon.png}" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/accounts/login/"><img th:src="@{/instagram-Icon.png}" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/login/?locale=es_ES"><img th:src="@{/facebook-Icon.png}" alt="Facebook"></a>
                 </div>
             </div>
 
             <!-- Sección de Servicios -->
             <div class="footer-section services-section">
                 <h3>Servicios</h3>
-                <a href="Politica de privacidad.html">Privacidad</a>
-                <a href="Terminos y condiciones.html">Términos</a>
+                <a th:href="@{/Politica-de-privacidad.html}">Privacidad</a>
+                <a th:href="@{/Terminos-y-condiciones.html}">Términos</a>
                 <a href="#">Cookies</a>
             </div>
 

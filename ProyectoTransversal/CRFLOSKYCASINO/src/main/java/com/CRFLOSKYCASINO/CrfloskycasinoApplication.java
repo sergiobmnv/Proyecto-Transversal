@@ -9,5 +9,4 @@ public class CrfloskycasinoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrfloskycasinoApplication.class, args);
 	}
-
 }
