@@ -59,6 +59,7 @@ document.getElementById("registroForm").addEventListener('submit',function(event
     var email = $("#email").val();
     var nombre = $("#nombre").val();
     var apellido = $("#apellido").val();
+    var dni = $("#dni").val();
     var fechaNacimiento = $("#fechaNacimiento").val();
     //CREACIÓN JSON CON DATOS DEL REGISTRO
     var registroData={
@@ -67,6 +68,7 @@ document.getElementById("registroForm").addEventListener('submit',function(event
         email:email,
         nombre:nombre,
         apellido:apellido,
+        dni:dni,
         fechaNacimiento:fechaNacimiento,
     }
     console.log(JSON.stringify(registroData));	
