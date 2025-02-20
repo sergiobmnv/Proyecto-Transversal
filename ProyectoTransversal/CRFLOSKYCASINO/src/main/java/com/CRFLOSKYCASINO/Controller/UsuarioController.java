@@ -12,7 +12,7 @@ import com.CRFLOSKYCASINO.Entity.UsuarioEntity;
 import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 import com.CRFLOSKYCASINO.Service.UsuarioService;
 
-import jakarta.servlet.http.HttpSession;
+
 
 @RestController
 @RequestMapping("/usuario")
