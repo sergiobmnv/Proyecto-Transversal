@@ -43,7 +43,7 @@ public class UsuarioServiceImplement implements UsuarioService {
 
     @Override
     public UsuarioDTO validarUsuario(UsuarioEntity usuario,String pwd){
-        UsuarioDTO usuarioDTO = null;
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
         if(usuario.getPwd().equals(pwd)){
             usuarioDTO = new UsuarioDTO();
             usuarioDTO.setUsername(usuario.getUsername());
