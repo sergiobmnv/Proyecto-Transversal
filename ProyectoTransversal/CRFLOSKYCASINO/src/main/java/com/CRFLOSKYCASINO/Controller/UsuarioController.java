@@ -50,7 +50,7 @@ public class UsuarioController {
 				 respuesta = "OK";
 			 }
 		}
-		System.out.println("Voy a mandar" +respuesta+ "porque el entity está vacío");
+		System.out.println("|| AL GET VA -->" +respuesta);
 		return respuesta;
 	}
 
