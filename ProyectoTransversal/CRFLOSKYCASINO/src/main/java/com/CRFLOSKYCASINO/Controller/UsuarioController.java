@@ -36,7 +36,7 @@ public class UsuarioController {
 
     @GetMapping("/{username}/{pwd}")
 	public String iniciarSesion(@PathVariable("username") String username, 
-			@PathVariable("pwd") String pwd, HttpSession sesion) {
+			@PathVariable("pwd") String pwd) {
 		UsuarioEntity usuario = usuarioService.encontrarPorUsuario(username);
 		UsuarioDTO usuarioDTO = new UsuarioDTO();
 		String respuesta;
@@ -47,8 +47,6 @@ public class UsuarioController {
 			 if(usuarioDTO.getNombre()==null) {
 				 respuesta = "Contraseña incorrecta";
 			 }else {
-                //Si el Login ha sido correcto, guardamos al usuario en la sesión.
-                sesion.setAttribute("usuario", usuario);
 				 respuesta = "OK";
 			 }
 		}
