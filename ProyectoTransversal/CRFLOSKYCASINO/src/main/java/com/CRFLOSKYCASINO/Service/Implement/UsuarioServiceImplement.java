@@ -56,7 +56,7 @@ public class UsuarioServiceImplement implements UsuarioService {
             usuarioDTO.setMonedero(usuario.getMonedero());
             usuarioDTO.setSaldo(usuario.getSaldo());
             usuario.setVip(usuario.isVip());
-            System.out.println("Usuario Encontrado y registrado: " +usuarioDTO);
+            System.out.println("Usuario Encontrado para Login: " +usuarioDTO);
             return usuarioDTO;
         }else{
            return usuarioDTO; 
