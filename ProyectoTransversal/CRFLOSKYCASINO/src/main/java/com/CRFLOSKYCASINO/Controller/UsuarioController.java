@@ -44,7 +44,7 @@ public class UsuarioController {
 			respuesta = "404";
 		}else {
 			 usuarioDTO = usuarioService.validarUsuario(usuario, pwd);
-			 if(usuarioDTO.getNombre().isEmpty()) {
+			 if(usuarioDTO.getNombre().isBlank()) {
 				 respuesta = "Contraseña incorrecta";
 			 }else {
                 //Si el Login ha sido correcto, guardamos al usuario en la sesión.
