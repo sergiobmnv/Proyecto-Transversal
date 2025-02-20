@@ -35,8 +35,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/{username}/{pwd}")
-	public String iniciarSesion(@PathVariable String username, 
-			@PathVariable String pwd, HttpSession sesion) {
+	public String iniciarSesion(@PathVariable("username") String username, 
+			@PathVariable("pwd") String pwd, HttpSession sesion) {
 		UsuarioEntity usuario = usuarioService.encontrarPorID(username);
 		UsuarioDTO usuarioDTO = new UsuarioDTO();
 		String respuesta;
