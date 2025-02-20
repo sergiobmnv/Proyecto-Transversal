@@ -44,8 +44,8 @@ public class UsuarioController {
 			respuesta = "404";
 		}else {
 			 usuarioDTO = usuarioService.validarUsuario(usuario, pwd);
-			 if(usuarioDTO.getNombre()==null) {
-				 respuesta = "Contraseña incorrecta";
+			 if(usuarioDTO.getPwd()==null) {
+				 respuesta = "PWDNF";
 			 }else {
 				 respuesta = "OK";
 			 }

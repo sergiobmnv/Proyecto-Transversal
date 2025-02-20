@@ -115,7 +115,7 @@ document.getElementById("registroForm").addEventListener('submit',function(event
 function submitGet() {
      var username = $("#usernameLogin").val();
      var pwd = $("#pwdLogin").val();
-    console.log(username+"y"+pwd)
+     console.log(username+"y"+pwd)
     $.ajax({
         type: "GET",
         url: `/usuario/${username}/${pwd}`, //URL CONFIGURADA PARA QUE DIRIJA AL CONTROLADOR
