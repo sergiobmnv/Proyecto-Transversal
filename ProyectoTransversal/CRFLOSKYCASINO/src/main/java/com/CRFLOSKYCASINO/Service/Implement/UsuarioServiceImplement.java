@@ -36,8 +36,8 @@ public class UsuarioServiceImplement implements UsuarioService {
     }
 
     @Override
-    public UsuarioEntity encontrarPorID(String username){
-        Optional<UsuarioEntity> usuario = usuarioRepository.findById(username);
+    public UsuarioEntity encontrarPorUsuario(String username){
+        Optional<UsuarioEntity> usuario = usuarioRepository.findByUsername(username);
             return usuario.orElse(null);
     }
 

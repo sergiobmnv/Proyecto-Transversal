@@ -10,4 +10,6 @@ import com.CRFLOSKYCASINO.Entity.UsuarioEntity;
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity,String> {
     Optional<UsuarioEntity> findById(String id);
+
+    Optional<UsuarioEntity> findByUsername(String username);
 }
