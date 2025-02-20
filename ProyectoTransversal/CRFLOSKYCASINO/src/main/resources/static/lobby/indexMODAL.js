@@ -129,7 +129,7 @@ function submitGet() {
             }else if(response == "404"){
                 showErrorModal("Usuario no encontrado.");
                 console.log("Usuario no encontrado")
-            }else{
+            }else if(response == "PWDNF"){
                 showErrorModal("Contraseña incorrecta.");
                 console.log("Contraseña incorrecta.");
             }
