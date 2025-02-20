@@ -113,13 +113,12 @@ document.getElementById("registroForm").addEventListener('submit',function(event
 })
 
 function submitGet() {
-    // Realizar una solicitud AJAX GET a servidor.php usando jQuery
      var username = $("#usernameLogin").val();
      var pwd = $("#pwdLogin").val();
     console.log(username+"y"+pwd)
     $.ajax({
         type: "GET",
-        url: `/usuarios/${username}/${pwd}`, //CONFIGURAR LA URL PARA QUE DIRIJA AL CONTROLADOR
+        url: `/usuario/${username}/${pwd}`, //URL CONFIGURADA PARA QUE DIRIJA AL CONTROLADOR
         
         success: function(response) {
             //POSIBLES SALIDAS DE RESPONSE 
