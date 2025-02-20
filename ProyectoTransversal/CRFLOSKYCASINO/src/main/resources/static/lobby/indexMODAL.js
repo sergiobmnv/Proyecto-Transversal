@@ -124,6 +124,7 @@ function submitGet() {
             //POSIBLES SALIDAS DE RESPONSE 
             if(response == "OK"){
                 console.log("Respuesta del servidor (GET):", "Redirigiendo al lobby");
+                showExitoModal("Usuario encontrado.");
                 window.location.href = "lobbyCasino.html";
             }else if(response == "404"){
                 showErrorModal("Usuario no encontrado.");
