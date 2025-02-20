@@ -2,13 +2,17 @@ package com.CRFLOSKYCASINO.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.CRFLOSKYCASINO.Entity.UsuarioEntity;
 import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 import com.CRFLOSKYCASINO.Service.UsuarioService;
+
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/usuario")
@@ -29,4 +33,26 @@ public class UsuarioController {
         usuarioService.registrarUsuario(usuario);
         return "USUARIO REGISTRADO CORRECTAMENTE";
     }
+
+    @GetMapping("/{username}/{pwd}")
+	public String iniciarSesion(@PathVariable ("usernameLogin") String username, 
+			@PathVariable ("pwdLogin") String pwd, HttpSession sesion) {
+		UsuarioEntity usuario = usuarioService.encontrarPorID(username);
+		UsuarioDTO usuarioDTO = new UsuarioDTO();
+		String respuesta;
+		if(usuario==null) {
+			respuesta = "404";
+		}else {
+			 usuarioDTO = usuarioService.validarUsuario(usuario, pwd);
+			 if(usuarioDTO == null) {
+				 respuesta = "Contraseña incorrecta";
+			 }else {
+                //Si el Login ha sido correcto, guardamos al usuario en la sesión.
+                sesion.setAttribute("usuario", usuario);
+				 respuesta = "OK";
+			 }
+		}
+		return respuesta;
+	}
+
 }

@@ -8,4 +8,6 @@ import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 @Service
 public interface UsuarioService {
     public UsuarioEntity registrarUsuario(UsuarioDTO usuario);
+    UsuarioEntity encontrarPorID(String username);
+	UsuarioDTO validarUsuario(UsuarioEntity usuario,String pwd);
 }

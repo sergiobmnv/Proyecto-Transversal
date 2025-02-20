@@ -111,3 +111,30 @@ document.getElementById("registroForm").addEventListener('submit',function(event
         }
     });
 })
+
+function submitGet() {
+    // Realizar una solicitud AJAX GET a servidor.php usando jQuery
+     var username = $("#usernameLogin").val();
+     var pwd = $("#pwdLogin").val();
+  
+    
+    $.ajax({
+        type: "GET",
+        url: `/usuarios/${username}/${pwd}`, //CONFIGURAR LA URL PARA QUE DIRIJA AL CONTROLADOR
+        
+        success: function(response) {
+            //POSIBLES SALIDAS DE RESPONSE 
+            if(response == "OK"){
+                console.log("Respuesta del servidor (GET):", "Redirigiendo al lobby");
+            }else if(response == "404"){
+                showErrorModal("Usuario no encontrado.");
+            }else{
+                showErrorModal("Contraseña incorrecta.");
+            }
+            
+        },
+        error: function(error) {
+            console.error("Error en la solicitud AJAX (GET):", error);
+        }
+    });
+}
