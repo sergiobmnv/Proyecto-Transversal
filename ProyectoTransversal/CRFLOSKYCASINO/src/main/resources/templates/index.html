@@ -91,7 +91,7 @@
     </footer>
 
     <!-- Modal de Inicio de Sesión -->
-    <div id="loginModal" class="modalLogin">
+    <div id="loginModal" class="modalLoginRegistro">
         <div class="modal-contentLogin">
             <form id="loginForm">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
@@ -107,24 +107,20 @@
                 <label for="pwdLogin" >Contraseña</label>
                 <input type="password" id="pwdLogin" name="pwdLogin" placeholder="Ingresa tu contraseña" />
             </div>
-            <!--Modales de confirmacion-->
-            <div id="exitoModal" class="modalExito">
-                <div class="modalExitoContent">
-                    <h5 id="exito">Usuario registrado con éxito.</h5>
-                </div>
-            </div>
-            <div id="errorModal" class="modalError">
-                <div class="modalErrorContent">
-                    <h5 id="error">Ha ocurrido un error.</h5>
-                </div>
-            </div>
             <button class="button-login" onclick="submitGet()">Entrar</button>
             </form>
         </div>
     </div>
 
+    <!--Modales de confirmacion-->
+    <div id="modalLoginError" class="modalLoginError">
+        <div class="modalLoginError">
+            <h5 id="error">Ha ocurrido un error.</h5>
+        </div>
+    </div>
+
     <!-- Modal de Registro -->
-    <div id="registerModal" class="modal">
+    <div id="registerModal" class="modalLoginRegistro">
         <div class="modal-content">
             <form id="registroForm">
                 <span class="close" onclick="closeModal('registerModal')">&times;</span>

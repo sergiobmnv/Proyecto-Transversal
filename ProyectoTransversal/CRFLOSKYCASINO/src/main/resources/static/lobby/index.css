@@ -152,7 +152,7 @@ marquee {
 }
 
 .modal-logo {
-  width: 150px;
+  width: 180px;
   margin-bottom: 10px;
 }
 
@@ -187,8 +187,9 @@ h2 {
   background-color: #fff;
 }
 
-/* Estilos para los modales */
-.modal {
+/*--------------------------------------------------------------------------*/
+/* Estilos para los modales de inicio de sesion y del registro */
+.modalLoginRegistro {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -215,11 +216,6 @@ h2 {
 .close:hover {
   color: #d9534f;
   /* Rojo suave al pasar el mouse */
-}
-
-
-.modal-logo {
-  width: 180px;
 }
 
 .modal-content h2 {
@@ -390,6 +386,8 @@ input:nth-child(3) {
   justify-content: center;
   margin-top: 20px;
 }
+/*--------------------------------------------------------------------------*/
+
 
 /* Estilo general para el modal de éxito */
 .modalExito {
@@ -616,3 +614,4 @@ h3 {
 }
 
 /*--------------------------------------------------------------------------------------*/
+
