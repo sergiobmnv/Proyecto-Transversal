@@ -116,8 +116,7 @@ function submitGet() {
     // Realizar una solicitud AJAX GET a servidor.php usando jQuery
      var username = $("#usernameLogin").val();
      var pwd = $("#pwdLogin").val();
-  
-    
+    console.log(username+"y"+pwd)
     $.ajax({
         type: "GET",
         url: `/usuarios/${username}/${pwd}`, //CONFIGURAR LA URL PARA QUE DIRIJA AL CONTROLADOR
@@ -128,8 +127,10 @@ function submitGet() {
                 console.log("Respuesta del servidor (GET):", "Redirigiendo al lobby");
             }else if(response == "404"){
                 showErrorModal("Usuario no encontrado.");
+                console.log("Usuario no encontrado")
             }else{
                 showErrorModal("Contraseña incorrecta.");
+                console.log("Contraseña incorrecta.");
             }
             
         },
