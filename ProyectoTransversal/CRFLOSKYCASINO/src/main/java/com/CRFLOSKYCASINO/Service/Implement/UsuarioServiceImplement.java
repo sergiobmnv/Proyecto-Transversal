@@ -1,5 +1,7 @@
 package com.CRFLOSKYCASINO.Service.Implement;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,34 @@ public class UsuarioServiceImplement implements UsuarioService {
         usuarioE.setSaldo(0);
         usuarioE.setVip(false);
         return usuarioRepository.save(usuarioE);
+    }
+
+    @Override
+    public UsuarioEntity encontrarPorUsuario(String username){
+        Optional<UsuarioEntity> usuario = usuarioRepository.findByUsername(username);
+            return usuario.orElse(null);
+    }
+
+    @Override
+    public UsuarioDTO validarUsuario(UsuarioEntity usuario,String pwd){
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        if(usuario.getPwd().equals(pwd)){
+            usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setUsername(usuario.getUsername());
+            usuarioDTO.setPwd(usuario.getPwd());
+            usuarioDTO.setEmail(usuario.getEmail());
+            usuarioDTO.setNombre(usuario.getNombre());
+            usuarioDTO.setApellido(usuario.getApellido());
+            usuarioDTO.setDni(usuario.getDni());
+            usuarioDTO.setFechaNacimiento(usuario.getFechaNacimiento());
+            usuarioDTO.setMonedero(usuario.getMonedero());
+            usuarioDTO.setSaldo(usuario.getSaldo());
+            usuario.setVip(usuario.isVip());
+            System.out.println("Usuario Encontrado y registrado: " +usuarioDTO);
+            return usuarioDTO;
+        }else{
+           return usuarioDTO; 
+        }
     }
     
 }

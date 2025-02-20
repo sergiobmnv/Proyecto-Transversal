@@ -2,13 +2,17 @@ package com.CRFLOSKYCASINO.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.CRFLOSKYCASINO.Entity.UsuarioEntity;
 import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 import com.CRFLOSKYCASINO.Service.UsuarioService;
+
+
 
 @RestController
 @RequestMapping("/usuario")
@@ -29,4 +33,25 @@ public class UsuarioController {
         usuarioService.registrarUsuario(usuario);
         return "USUARIO REGISTRADO CORRECTAMENTE";
     }
+
+    @GetMapping("/{username}/{pwd}")
+	public String iniciarSesion(@PathVariable("username") String username, 
+			@PathVariable("pwd") String pwd) {
+		UsuarioEntity usuario = usuarioService.encontrarPorUsuario(username);
+		UsuarioDTO usuarioDTO = new UsuarioDTO();
+		String respuesta;
+		if(usuario==null) {
+			respuesta = "404";
+		}else {
+			 usuarioDTO = usuarioService.validarUsuario(usuario, pwd);
+			 if(usuarioDTO.getPwd()==null) {
+				 respuesta = "PWDNF";
+			 }else {
+				 respuesta = "OK";
+			 }
+		}
+		System.out.println("Voy a mandar" +respuesta+ "porque el entity está vacío");
+		return respuesta;
+	}
+
 }

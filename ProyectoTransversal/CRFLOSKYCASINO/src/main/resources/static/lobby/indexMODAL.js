@@ -111,3 +111,32 @@ document.getElementById("registroForm").addEventListener('submit',function(event
         }
     });
 })
+
+function submitGet() {
+     var username = $("#usernameLogin").val();
+     var pwd = $("#pwdLogin").val();
+     console.log(username+"y"+pwd)
+    $.ajax({
+        type: "GET",
+        url: `/usuario/${username}/${pwd}`, //URL CONFIGURADA PARA QUE DIRIJA AL CONTROLADOR
+        
+        success: function(response) {
+            //POSIBLES SALIDAS DE RESPONSE 
+            if(response == "OK"){
+                console.log("Respuesta del servidor (GET):", "Redirigiendo al lobby");
+                showExitoModal("Usuario encontrado.");
+                window.location.href = "lobbyCasino.html";
+            }else if(response == "404"){
+                showErrorModal("Usuario no encontrado.");
+                console.log("Usuario no encontrado")
+            }else if(response == "PWDNF"){
+                showErrorModal("Contraseña incorrecta.");
+                console.log("Contraseña incorrecta.");
+            }
+            
+        },
+        error: function(error) {
+            console.error("Error en la solicitud AJAX (GET):", error);
+        }
+    });
+}
