@@ -22,7 +22,7 @@ public class UsuarioServiceImplement implements UsuarioService {
     @Override
     public UsuarioEntity registrarUsuario(UsuarioDTO usuario){
         UsuarioEntity usuarioE = new UsuarioEntity();
-        usuarioE.setUsername(usuario.getNombre());
+        usuarioE.setUsername(usuario.getUsername());
         usuarioE.setPwd(usuario.getPwd());
         usuarioE.setEmail(usuario.getEmail());
         usuarioE.setNombre(usuario.getNombre());
