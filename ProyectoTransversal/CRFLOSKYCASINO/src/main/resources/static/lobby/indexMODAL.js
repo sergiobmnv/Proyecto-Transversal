@@ -34,7 +34,7 @@ function showErrorModal(mensaje) {
 function showExitoModal(mensaje) {
     let exitoModal = document.getElementById("exitoModal");
     let exitoText = document.getElementById("exito");
-    
+
     exitoText.innerText = mensaje; // Cambia el texto del modal con el mensaje recibido
     exitoModal.style.display = "flex"; // Muestra el modal
 
@@ -104,6 +104,7 @@ document.getElementById("registroForm").addEventListener('submit',function(event
         data: JSON.stringify(registroData),
         success: function(response) {
             showExitoModal("USUARIO REGISTRADO CON ÉXITO.");
+            closeModal("registerModal");
             console.log("Respuesta del servidor:", response);
         },
         error: function(error) {
