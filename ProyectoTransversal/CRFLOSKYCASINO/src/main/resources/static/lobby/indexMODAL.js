@@ -103,8 +103,8 @@ document.getElementById("registroForm").addEventListener('submit',function(event
         contentType: "application/json",
         data: JSON.stringify(registroData),
         success: function(response) {
-            console.log("Respuesta del servidor:", response);
             showExitoModal(response);
+            console.log("Respuesta del servidor:", response);
         },
         error: function(error) {
             console.error("Error en la solicitud AJAX:", error);
