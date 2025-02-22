@@ -16,7 +16,7 @@
         <div class="logo">
             <img src="assets/logos/Logo_F_CR.png" alt="Logo">
         </div>
-        
+
         <div class="buttons">
             <button class="button-entrar" role="button" onclick="openModal('loginModal')"><i
                     class="fa-regular fa-user"></i> ENTRAR</button>
@@ -53,7 +53,7 @@
 
     <footer class="footer">
         <div class="footer-container">
-            
+
             <!-- Logo y Copyright -->
             <div class="footer-section logo-section">
                 <img src="assets/logos/Logo_F_CR_2.png" alt="CR Flosky Casino" class="footer-logo">
@@ -64,9 +64,12 @@
             <div class="footer-section social-section">
                 <h3>Redes Sociales</h3>
                 <div class="social-icons">
-                    <a href="https://x.com/twitter?lang=es&mx=2"><img src="assets/redesSociales/Twitter-Icon.png" alt="Twitter"></a>
-                    <a href="https://www.instagram.com/accounts/login/"><img src="assets/redesSociales/instagram-icon.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/login/?locale=es_ES"><img src="assets/redesSociales/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://x.com/twitter?lang=es&mx=2"><img src="assets/redesSociales/Twitter-Icon.png"
+                            alt="Twitter"></a>
+                    <a href="https://www.instagram.com/accounts/login/"><img
+                            src="assets/redesSociales/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/login/?locale=es_ES"><img
+                            src="assets/redesSociales/facebook-icon.png" alt="Facebook"></a>
                 </div>
             </div>
 
@@ -89,41 +92,41 @@
     </footer>
 
     <!-- Modal de Inicio de Sesión -->
-    <div id="loginModal" class="modalLogin">
-        <div class="modal-contentLogin">
+    <div id="loginModal" class="modal-iniciar-sesion">
+        <div class="modal-content-iniciar-sesion">
             <form id="loginForm">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
-            <h2>Iniciar Sesión</h2>
+                <span class="close" onclick="closeModal('loginModal')">&times;</span>
+                <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
+                <h2>Iniciar Sesión</h2>
 
-            <div class="input-groupUsuario">
-                <label for="usernameLogin">Usuario</label>
-                <input type="text" id="usernameLogin" name="usernameLogin" placeholder="Ingresa tu usuario" />
-            </div>
+                <div class="input-groupUsuario">
+                    <label for="usernameLogin">Usuario</label>
+                    <input type="text" id="usernameLogin" name="usernameLogin" placeholder="Ingresa tu usuario" />
+                </div>
 
-            <div class="input-groupUsuario">
-                <label for="pwdLogin" >Contraseña</label>
-                <input type="password" id="pwdLogin" name="pwdLogin" placeholder="Ingresa tu contraseña" />
-            </div>
-            <!--Modales de confirmacion-->
-            <div id="exitoModal" class="modalExito">
-                <div class="modalExitoContent">
-                    <h5 id="exito">Usuario registrado con éxito.</h5>
+                <div class="input-groupUsuario">
+                    <label for="pwdLogin">Contraseña</label>
+                    <input type="password" id="pwdLogin" name="pwdLogin" placeholder="Ingresa tu contraseña" />
                 </div>
-            </div>
-            <div id="errorModal" class="modalError">
-                <div class="modalErrorContent">
-                    <h5 id="error">Ha ocurrido un error.</h5>
+                <!--Modales de confirmacion-->
+                <div id="exitoModalInicio" class="modalExitoInicio">
+                    <div class="modalExitoContentInicio">
+                        <h5 id="exitoInicio">Usuario registrado con éxito.</h5>
+                    </div>
                 </div>
-            </div>
-            <button class="button-login" onclick="submitGet()">Entrar</button>
+                <div id="errorModalInicio" class="modalErrorInicio">
+                    <div class="modalErrorContentInicio">
+                        <h5 id="errorInicio">Ha ocurrido un error.</h5>
+                    </div>
+                </div>
+                <button class="button-login" onclick="submitGet()">Entrar</button>
             </form>
         </div>
     </div>
 
     <!-- Modal de Registro -->
-    <div id="registerModal" class="modal">
-        <div class="modal-content">
+    <div id="registerModal" class="modal-registro">
+        <div class="modal-content-registro">
             <form id="registroForm">
                 <span class="close" onclick="closeModal('registerModal')">&times;</span>
                 <img src="assets/logos/Logo_F_CR_2.png" alt="Logo" class="modal-logo">
@@ -141,7 +144,8 @@
 
                 <div class="input-group">
                     <div class="input-container">
-                        <label for="pwd" title="La contraseña debe contener mayúsculas y más de 10 caractéres">Contraseña</label>
+                        <label for="pwd"
+                            title="La contraseña debe contener mayúsculas y más de 10 caractéres">Contraseña</label>
                         <input type="password" placeholder="Contraseña" id="pwd" name="contrasenia" required />
                     </div>
                     <div class="input-container">
@@ -174,16 +178,20 @@
                 </div>
 
                 <!--Modales de confirmacion-->
-                <div id="exitoModal" class="modalExito">
-                    <div class="modalExitoContent">
-                        <h5 id="exito">Usuario registrado con éxito.</h5>
+                <!-- Modal de éxito -->
+                <div id="exitoModalRegistro" class="modalExitoRegistro">
+                    <div class="modalExitoContentRegistro">
+                        <h5 id="exitoRegistro">Usuario registrado con éxito.</h5>
                     </div>
                 </div>
-                <div id="errorModal" class="modalError">
-                    <div class="modalErrorContent">
-                        <h5 id="error">Ha ocurrido un error.</h5>
+
+                <!-- Modal de error -->
+                <div id="errorModalRegistro" class="modalErrorRegistro">
+                    <div class="modalErrorContentRegistro">
+                        <h5 id="errorRegistro">Ha ocurrido un error.</h5>
                     </div>
                 </div>
+
                 <button class="button-register" id="registro" type="submit">Registrarse</button>
             </form>
         </div>
