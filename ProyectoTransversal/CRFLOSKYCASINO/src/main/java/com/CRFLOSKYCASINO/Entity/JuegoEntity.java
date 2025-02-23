@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "JUEGO")
 public class JuegoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
