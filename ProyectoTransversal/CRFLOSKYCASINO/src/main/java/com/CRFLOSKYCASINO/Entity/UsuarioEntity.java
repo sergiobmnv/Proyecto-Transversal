@@ -2,6 +2,7 @@ package com.CRFLOSKYCASINO.Entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -40,6 +41,21 @@ public class UsuarioEntity implements Serializable {
 
     @Column(name="IS_VIP")
     private boolean isVip;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<TarjetaCreditoEntity> tarjetas;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<ConversionEntity> conversiones;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<LogSlotsEntity> logSlots;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<LogDinoEntity> logDino;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<LogMinasEntity> logMinas;
 
     //GETTERS Y SETTERS
     public String getUsername() {
