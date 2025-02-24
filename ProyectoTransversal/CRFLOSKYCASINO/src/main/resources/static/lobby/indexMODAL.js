@@ -1,3 +1,7 @@
+function cerrarModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+
 function openModal(modalId) {
     document.getElementById(modalId).style.display = "flex";
 }

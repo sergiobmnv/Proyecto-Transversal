@@ -160,10 +160,10 @@ width: 100%; /* Ajuste para que ocupe todo el ancho disponible */
 }
 
 .input-groupUsuario label {
-font-size: 14px;
+font-size: 16px;
 font-weight: bold;
 color: goldenrod;
-margin-bottom: 5px;
+margin-bottom: 13px;
 }
 
 .input-groupUsuario input {
@@ -248,7 +248,7 @@ display: block;
 font-size: 16px;
 font-weight: bold;
 color: goldenrod;
-margin-bottom: 5px;
+margin-bottom: 10px;
 }
 
 .input-group div {
@@ -334,12 +334,12 @@ to {
 }
 
 .button-login {
-background: rgb(255, 255, 255);
+  background: goldenrod;
 border: 1px solid goldenrod;
 border-radius: 16px;
 box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
 box-sizing: border-box;
-color: goldenrod;
+color: rgb(255, 255, 255);
 cursor: pointer;
 display: inline-block;
 font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
@@ -379,75 +379,95 @@ justify-content: center;
 margin-top: 20px;
 }
 
-/* Estilo general para el modal de éxito */
-.modalExito {
-display: none; /* Oculto por defecto */
-position: fixed; /* Fijo en la pantalla */
-z-index: 1000; /* Por encima de otros elementos */
-left: 0;
-top: 0;
-width: 100%; /* Ancho completo */
-height: 100%; /* Alto completo */
-background-color: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente */
+/* Estilo general para los modales */
+.modalExito, .modalError {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Estilo general para el modal de error */
-.modalError {
-display: none; /* Oculto por defecto */
-position: fixed; /* Fijo en la pantalla */
-z-index: 1000; /* Por encima de otros elementos */
-left: 0;
-top: 0;
-width: 100%; /* Ancho completo */
-height: 100%; /* Alto completo */
-background-color: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente */
+/* Contenido del modal */
+.modalExitoContent, .modalErrorContent {
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.5s ease-out;
 }
 
-/* Contenido del modal de éxito */
+/* Estilos específicos para el modal de éxito */
 .modalExitoContent {
-background-color: #4CAF50; /* Fondo verde */
-margin: 10% auto; /* Espacio superior y centrado horizontalmente */
-padding: 20px; /* Espaciado interno */
-border-radius: 8px; /* Bordes redondeados */
-width: 400px; /* Ancho fijo */
-height: 100px;
-text-align: center; /* Centramos el texto */
-color: #fff; /* Texto blanco */
-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra */
-font-family: 'Arial', sans-serif; /* Fuente */
+  background-color: #4CAF50; /* Verde */
 }
 
-/* Contenido del modal de error */
+/* Estilos específicos para el modal de error */
 .modalErrorContent {
-background-color: #F44336; /* Fondo rojo */
-margin: 10% auto; /* Espacio superior y centrado horizontalmente */
-padding: 20px; /* Espaciado interno */
-border-radius: 8px; /* Bordes redondeados */
-width: 400px; /* Ancho fijo */
-height: 100px;
-text-align: center; /* Centramos el texto */
-color: #fff; /* Texto blanco */
-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra */
-font-family: 'Arial', sans-serif; /* Fuente */
+  background-color: #F44336; /* Rojo */
 }
 
-/* Estilo para animaciones (opcional) */
-.modalExito.show,
-.modalError.show {
-display: block; /* Mostrar el modal */
-animation: fadeIn 0.3s; /* Animación de aparición */
+/* Icono de éxito */
+.modalExitoContent::before {
+  content: "✔"; /* Checkmark */
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
 }
 
+/* Icono de error */
+.modalErrorContent::before {
+  content: "✖"; /* Cruz */
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Botón de cierre */
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+.closeBtn:hover {
+  color: black;
+}
+
+/* Animaciones */
 @keyframes fadeIn {
-from {
-    opacity: 0;
-    transform: translateY(-20px); /* Mover hacia arriba */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
-to {
-    opacity: 1;
-    transform: translateY(0); /* Posición original */
+
+@keyframes slideDown {
+  from {
+      transform: translateY(-30px);
+  }
+  to {
+      transform: translateY(0);
+  }
 }
-}
+
 
 /*-------------------------------------------------------------------------------------------------*/
 /* Sección de juegos */
