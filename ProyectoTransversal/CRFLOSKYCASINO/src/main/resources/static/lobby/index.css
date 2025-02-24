@@ -470,26 +470,26 @@ margin-top: 20px;
 
 
 /*-------------------------------------------------------------------------------------------------*/
+
 /* Sección de juegos */
 .juegos {
-display: flex;
-justify-content: center;
-gap: 30px;
-padding: 40px;
-position: relative; /* Asegura que el efecto solo afecte dentro */
-}
-
-/* Tarjetas de los juegos */
-.juego {
-width: 320px;
-text-align: center;
-background-color: #ffffff; /* Fondo blanco */
-padding: 20px;
-border-radius: 15px;
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-position: relative;
-}
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+  padding: 20px;
+  }
+  
+  .juego {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  }
 
 /* Brillo dorado cuando se pasa el cursor */
 .juego:hover {
@@ -624,27 +624,6 @@ text-decoration: underline;
 }
 
 /*--------------------------------------------------------------------------------------*/
-
-
-/* Sección de juegos */
-.juegos {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 20px;
-padding: 20px;
-}
-
-.juego {
-width: 100%;
-max-width: 320px;
-text-align: center;
-background-color: #ffffff;
-padding: 20px;
-border-radius: 15px;
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-transition: transform 0.3s ease;
-}
 
 @media screen and (max-width: 768px) {
 header {
