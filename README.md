@@ -21,9 +21,13 @@ Proyecto transversal realizado por Miguel Ángel Cuadrado Robles y Sergio Bravo 
 - MySQL Server.
 - Visual Studio Code
 
-1. Clona el repositorio:
+1. Clonación el repositorio:
 
    # https://github.com/sergiobmnv/Proyecto-Transversal.git
+
+2. Diseño de bocetos en Figma:
+
+	# https://www.figma.com/design/7AWQ04YHXDH6ZGVIlfP749/CR_FLOSKY_CASINO?node-id=0-1&m=dev&t=RT7cn8BMMCARizEv-1
 
 
 # Instrucciones paso a paso de como desplegar tu proyecto en Railway.
