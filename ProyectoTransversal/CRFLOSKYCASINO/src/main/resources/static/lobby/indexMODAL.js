@@ -48,97 +48,98 @@ function showExitoModal(mensaje) {
     }, 3000);
 }
 
-const btnRegistro = document.getElementById("registro")
-document.getElementById("registroForm").addEventListener('submit',function(event){
-    event.preventDefault();
-    var edad=false,password=false,dni=false;  
-    var password1 = document.getElementById("pwd").value;
-    var password2 = document.getElementById("pwd2").value;
-        //COMPROBACIÓN PASSWORDS COINCIDEN, CONTIENEN MAYÚSCULA Y SU LONGITUD ES MAYOR A 10.
-                if(password1===password2 && password1.length >10){                   
-                    if(!/[A-Z]/.test(password1)){
-                        showErrorModal("La contraseña debe tener mínimo una mayúscula.");
-                    }else{
-                        password=true;
-                    }
-                }else if(password1.length <10){
-                    showErrorModal("La longitud de la contraseña debe ser mayor a 10.");
-                }else{
-                    showErrorModal("Las contraseñas no coinciden.");
-                }
-    var fechaNacimiento = document.getElementById("fechaNacimiento").value;
-    var edad = new Date(fechaNacimiento).getFullYear();
-    var hoy = new Date().getFullYear(); 
-        //COMPROBACIÓN EL USUARIO ES MAYOR DE 18 
-                if((hoy-edad)>=18){
-                    edad=true;
-                }else{
-                    showErrorModal("Queda prohibido el acceso a menores.");
-                }
-    const dniRegex = /^[0-9]{8}[A-Za-z]$/;
-        //COMPROBACIÓN DNI TIENE UN FORMATO CORRECTO
-                if (dniRegex.test(document.getElementById("dni").value)) {
-                    dni=true;
-                } else {
-                    showErrorModal("El formato del DNI es incorrecto.");
-                }
-    
-    var username = $("#username").val();
-    var pwd = $("#pwd").val();
-    var email = $("#email").val();
-    var nombre = $("#nombre").val();
-    var apellido = $("#apellido").val();
-    var dni = $("#dni").val();
-    var fechaNacimiento = $("#fechaNacimiento").val();
-    //CREACIÓN JSON CON DATOS DEL REGISTRO
-    var registroData={
-        username:username,
-        pwd:pwd,
-        email:email,
-        nombre:nombre,
-        apellido:apellido,
-        dni:dni,
-        fechaNacimiento:fechaNacimiento,
+const btnRegistro = document.getElementById("registro");
+
+document.getElementById("registroForm").addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío del formulario por defecto
+
+    let valid = true; // Variable para controlar si todas las validaciones son correctas
+
+    const password1 = document.getElementById("pwd").value;
+    const password2 = document.getElementById("pwd2").value;
+
+    // Validación de contraseñas
+    if (password1 !== password2) {
+        showErrorModal("Las contraseñas no coinciden.");
+        valid = false;
+    } else if (password1.length <= 10) {
+        showErrorModal("La longitud de la contraseña debe ser mayor a 10.");
+        valid = false;
+    } else if (!/[A-Z]/.test(password1)) {
+        showErrorModal("La contraseña debe tener mínimo una mayúscula.");
+        valid = false;
     }
-    console.log(JSON.stringify(registroData));	
-    $.ajax({
-        type: "POST",
-        url: "/usuario/registro",
-        contentType: "application/json",
-        data: JSON.stringify(registroData),
-        success: function(response) {
-            showExitoModal("USUARIO REGISTRADO CON ÉXITO.");
-            closeModal("registerModal");
-            console.log("Respuesta del servidor:", response);
-        },
-        error: function(error) {
-            console.error("Error en la solicitud AJAX:", error);
-        }
-    });
-})
+
+    // Validación de edad
+    const fechaNacimiento = document.getElementById("fechaNacimiento").value;
+    const edad = new Date(fechaNacimiento).getFullYear();
+    const hoy = new Date().getFullYear();
+    if ((hoy - edad) < 18) {
+        showErrorModal("Queda prohibido el acceso a menores.");
+        valid = false;
+    }
+
+    // Validación de DNI
+    const dniRegex = /^[0-9]{8}[A-Za-z]$/;
+    const dni = document.getElementById("dni").value;
+    if (!dniRegex.test(dni)) {
+        showErrorModal("El formato del DNI es incorrecto.");
+        valid = false;
+    }
+
+    // Si todas las validaciones son correctas, proceder a enviar los datos
+    if (valid) {
+        const username = $("#username").val();
+        const email = $("#email").val();
+        const pwd = $("#pwd").val();
+        const nombre = $("#nombre").val();
+        const apellido = $("#apellido").val();
+        const fechaNacimiento = $("#fechaNacimiento").val();
+
+        // CREACIÓN JSON CON DATOS DEL REGISTRO
+        const registroData = {
+            username: username,
+            pwd: pwd,
+            email: email,
+            nombre: nombre,
+            apellido: apellido,
+            dni: dni,
+            fechaNacimiento: fechaNacimiento,
+        };
+
+        console.log(JSON.stringify(registroData));    
+        $.ajax({
+            type: "POST",
+            url: "/usuario/registro",
+            contentType: "application/json",
+            data: JSON.stringify(registroData),
+            success: function(response) {
+                showExitoModal("USUARIO REGISTRADO CON ÉXITO.");
+                closeModal("registerModal");
+                console.log("Respuesta del servidor:", response);
+            },
+            error: function(error) {
+                console.error("Error en la solicitud AJAX:", error);
+            }
+        });
+    }
+});
 
 function submitGet() {
-     var username = $("#usernameLogin").val();
-     var pwd = $("#pwdLogin").val();
-     console.log(username+"y"+pwd)
+    const username = $("#usernameLogin").val();
+    const pwd = $("#pwdLogin").val();
     $.ajax({
         type: "GET",
-        url: `/usuario/${username}/${pwd}`, //URL CONFIGURADA PARA QUE DIRIJA AL CONTROLADOR
-        
+        url: `/usuario/${username}/${pwd}`,
         success: function(response) {
-            //POSIBLES SALIDAS DE RESPONSE 
-            if(response == "OK"){
-                console.log("Respuesta del servidor (GET):", "Redirigiendo al lobby");
+            if (response == "OK") {
                 showExitoModal("Usuario encontrado.");
                 window.location.href = "lobbyCasino.html";
-            }else if(response == "404"){
+            } else if (response == "404") {
                 showErrorModal("Usuario no encontrado.");
-                console.log("Usuario no encontrado")
-            }else if(response == "PWDNF"){
+            } else if (response == "PWDNF") {
                 showErrorModal("Contraseña incorrecta.");
-                console.log("Contraseña incorrecta.");
             }
-            
         },
         error: function(error) {
             console.error("Error en la solicitud AJAX (GET):", error);

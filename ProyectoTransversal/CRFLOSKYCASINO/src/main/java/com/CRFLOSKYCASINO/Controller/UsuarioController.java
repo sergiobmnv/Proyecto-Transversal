@@ -12,8 +12,6 @@ import com.CRFLOSKYCASINO.Entity.UsuarioEntity;
 import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 import com.CRFLOSKYCASINO.Service.UsuarioService;
 
-
-
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
