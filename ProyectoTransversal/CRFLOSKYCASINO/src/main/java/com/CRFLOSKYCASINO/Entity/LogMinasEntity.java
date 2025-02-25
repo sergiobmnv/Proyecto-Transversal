@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "LOG_MINAS")
+@Table(name = "log_minas")
 public class LogMinasEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
