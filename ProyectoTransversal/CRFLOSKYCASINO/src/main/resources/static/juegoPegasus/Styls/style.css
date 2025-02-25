@@ -31,10 +31,10 @@ header {
 }
 
 header .logo img {
-  width: 80px;
+  width: 120px;
   height: auto;
   border-radius: 50%;
-  border: 2px solid #0099ff;
+  
 }
 
 header .titulo {
@@ -59,6 +59,7 @@ header .titulo .p1 {
   border-radius: 8px;
   display: inline-block;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 header .titulo .p1:hover {
@@ -247,7 +248,7 @@ footer {
 .buttons button {
   background-color: #ffcc00;
   border: none;
-  color: #1e1e2f;
+  color: #2f1e1e;
   padding: 10px 15px;
   font-size: 15px;
   border-radius: 5px;
