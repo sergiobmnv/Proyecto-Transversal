@@ -19,7 +19,7 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String mostrarLobby(){
         
         return "index";
