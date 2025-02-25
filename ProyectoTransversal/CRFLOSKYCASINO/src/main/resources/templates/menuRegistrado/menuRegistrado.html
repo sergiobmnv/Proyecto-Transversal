@@ -13,6 +13,7 @@
         <div class="logo">
             <img th:src="@{/Logo_F_CR.png}" alt="Logo">
         </div>
+        <h2>Bienvenido, <span id="nombreUsuario"></span></h2>
         <nav class="nav-links">
             <!-- Aquí puedes añadir enlaces en el futuro -->
         </nav>
@@ -68,6 +69,16 @@
 
         </div>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const usuario = JSON.parse(localStorage.getItem("usuario"));
     
+            if (usuario) {
+                document.getElementById("nombreUsuario").innerText = usuario.username;
+            } else {
+                window.location.href = "/"; // Redirigir al index si no hay usuario
+            }
+        });
+    </script>
 </body>
 </html>
