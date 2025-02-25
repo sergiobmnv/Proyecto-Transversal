@@ -6,14 +6,18 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Family Guy Game</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/assets/Favicon.png}">
-    <link rel="shortcut icon" th:href="@{/assets/Favicon.png}">
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/style.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/cambiarIdioma.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/modalApuestaMaxima.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/bonos.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/Estilos/depositar-retirar.css}'>
+    <!-- Íconos -->
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/assets/juegoTragaperras/Favicon.png}">
+    <link rel="shortcut icon" th:href="@{/assets/juegoTragaperras/Favicon.png}">
 
+    <!-- Estilos -->
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/style.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/cambiarIdioma.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/modalApuestaMaxima.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/bonos.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/depositar-retirar.css}'>
+
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
 </head>
@@ -21,11 +25,11 @@
 <body>
     <header>
         <div class="logo">
-            <img th:src="@{/assets/Logo_F_CR.png}" alt="Logo"/>
+            <img th:src="@{/assets/logos/Logo_F_CR.png}" alt="Logo"/>
         </div>
 
         <div class="titulo">
-            <img th:src="@{/assets/logo.png}" alt="Game Logo"/>
+            <img th:src="@{/assets/juegoTragaperras/logo.png}" alt="Game Logo"/>
         </div>
 
         <div class="reloj">
@@ -55,7 +59,7 @@
             <h2>Posibles Combinaciones</h2>
             <ul>
                 <li th:each="combinacion : ${combinaciones}">
-                    <img th:src="@{${combinacion.imagen}}" alt="combinacion" />
+                    <img th:src="@{/assets/juegoTragaperras/{img}(img=${combinacion.imagen})}" alt="combinacion" />
                     <p th:text="${combinacion.premio} + '€'"></p>
                     <p>Creditos</p>
                 </li>
@@ -64,13 +68,13 @@
 
         <div class="tableroSlot">
             <div class="celda" th:each="simbolo : ${tablero}">
-                <img th:src="@{${simbolo.imagen}}" th:alt="${simbolo.nombre}"/>
+                <img th:src="@{/assets/juegoTragaperras/{img}(img=${simbolo.imagen})}" th:alt="${simbolo.nombre}"/>
             </div>
         </div>
     </div>
 
     <div class="info-tablero">
-        <audio id="musicaFondo" th:src="@{/assets/ambiente.mp3}" autoplay loop></audio>
+        <audio id="musicaFondo" th:src="@{/assets/juegoTragaperras/ambiente.mp3}" autoplay loop></audio>
         <div class="volumen">
             <i id="iconoMusica" class="fas fa-volume-up"></i>
             <input type="range" id="controlVolumen" min="0" max="1" value="0.5" step="0.1" />
@@ -82,11 +86,12 @@
         </div>
     </div>
 
-    <script th:src='@{/index.js}'></script>
-    <script th:src="@{/traductor.js}"></script>
-    <script th:src="@{/reloj.js}"></script>
-    <script th:src="@{/modoColorBlancoGris.js}"></script>
-    <script th:src="@{/musica.js}"></script>
-    <script th:src="@{/verificarCombinaciones.js}"></script>
+    <!-- Scripts -->
+    <script th:src='@{/juegoTragaperras/index.js}'></script>
+    <script th:src="@{/juegoTragaperras/traductor.js}"></script>
+    <script th:src="@{/juegoTragaperras/reloj.js}"></script>
+    <script th:src="@{/juegoTragaperras/modoColorBlancoGris.js}"></script>
+    <script th:src="@{/juegoTragaperras/musica.js}"></script>
+    <script th:src="@{/juegoTragaperras/verificarCombinaciones.js}"></script>
 </body>
 </html>
