@@ -30,6 +30,11 @@ Proyecto transversal realizado por Miguel Ángel Cuadrado Robles y Sergio Bravo 
 	# https://www.figma.com/design/7AWQ04YHXDH6ZGVIlfP749/CR_FLOSKY_CASINO?node-id=0-1&m=dev&t=RT7cn8BMMCARizEv-1
 
 
+3. Despligue en Railway.
+
+	# [casinocrflosky.up.railway.app](https://casinocrflosky.up.railway.app/)
+
+
 # Instrucciones paso a paso de como desplegar tu proyecto en Railway.
 		
 		Paso 1: Registrarte en Railway mediante Git Hub.
