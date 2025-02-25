@@ -1,6 +1,7 @@
 package com.CRFLOSKYCASINO.Entity;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Timestamp;
+
 
 import jakarta.persistence.*;
 
@@ -25,7 +26,7 @@ public class ConversionEntity implements Serializable {
     private UsuarioEntity usuario;
 
     @Column(name = "FECHA", nullable = false)
-    private LocalDate fecha;
+    private Timestamp fecha;
 
 	public double getEuros() {
 		return euros;
@@ -51,11 +52,11 @@ public class ConversionEntity implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public LocalDate getFecha() {
+	public Timestamp getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(Timestamp fecha) {
 		this.fecha = fecha;
 	}
 }
