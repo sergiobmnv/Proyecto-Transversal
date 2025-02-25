@@ -13,13 +13,13 @@ import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 import com.CRFLOSKYCASINO.Service.UsuarioService;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/")
 public class UsuarioController {
     
     @Autowired
     UsuarioService usuarioService;
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String mostrarLobby(){
         
         return "index";
