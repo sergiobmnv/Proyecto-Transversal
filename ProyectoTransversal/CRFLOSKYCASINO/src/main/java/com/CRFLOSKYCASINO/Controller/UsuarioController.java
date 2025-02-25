@@ -13,7 +13,7 @@ import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 import com.CRFLOSKYCASINO.Service.UsuarioService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/usuario")
 public class UsuarioController {
     
     @Autowired
