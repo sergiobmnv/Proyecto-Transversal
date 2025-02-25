@@ -11,11 +11,11 @@
     <link rel="shortcut icon" th:href="@{/assets/juegoTragaperras/Favicon.png}">
 
     <!-- Estilos -->
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/style.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/cambiarIdioma.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/modalApuestaMaxima.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/bonos.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/juegoTragaperras/Estilos/depositar-retirar.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{Estilos/style.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{Estilos/cambiarIdioma.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{Estilos/modalApuestaMaxima.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{Estilos/bonos.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{Estilos/depositar-retirar.css}'>
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -25,11 +25,11 @@
 <body>
     <header>
         <div class="logo">
-            <img th:src="@{/assets/logos/Logo_F_CR.png}" alt="Logo"/>
+            <img th:src="@{/Assets/logos/Logo_F_CR.png}" alt="Logo"/>
         </div>
 
         <div class="titulo">
-            <img th:src="@{/assets/juegoTragaperras/logo.png}" alt="Game Logo"/>
+            <img th:src="@{/Assets/juegoTragaperras/logo.png}" alt="Game Logo"/>
         </div>
 
         <div class="reloj">
@@ -59,7 +59,7 @@
             <h2>Posibles Combinaciones</h2>
             <ul>
                 <li th:each="combinacion : ${combinaciones}">
-                    <img th:src="@{/assets/juegoTragaperras/{img}(img=${combinacion.imagen})}" alt="combinacion" />
+                    <img th:src="@{/Assets/juegoTragaperras/{img}(img=${combinacion.imagen})}" alt="combinacion" />
                     <p th:text="${combinacion.premio} + '€'"></p>
                     <p>Creditos</p>
                 </li>
@@ -68,13 +68,13 @@
 
         <div class="tableroSlot">
             <div class="celda" th:each="simbolo : ${tablero}">
-                <img th:src="@{/assets/juegoTragaperras/{img}(img=${simbolo.imagen})}" th:alt="${simbolo.nombre}"/>
+                <img th:src="@{/Assets/juegoTragaperras/{img}(img=${simbolo.imagen})}" th:alt="${simbolo.nombre}"/>
             </div>
         </div>
     </div>
 
     <div class="info-tablero">
-        <audio id="musicaFondo" th:src="@{/assets/juegoTragaperras/ambiente.mp3}" autoplay loop></audio>
+        <audio id="musicaFondo" th:src="@{/Assets/juegoTragaperras/ambiente.mp3}" autoplay loop></audio>
         <div class="volumen">
             <i id="iconoMusica" class="fas fa-volume-up"></i>
             <input type="range" id="controlVolumen" min="0" max="1" value="0.5" step="0.1" />
