@@ -46,7 +46,7 @@ public class UsuarioController {
 	
 		UsuarioDTO usuarioDTO = usuarioService.validarUsuario(usuario, pwd);
 		
-		if (usuarioDTO.getPwd() == null) {
+		if (usuarioDTO == null) {
 			System.out.println("Contraseña incorrecta"); // DEBUG
 			return "PWDNF";
 		} else {
