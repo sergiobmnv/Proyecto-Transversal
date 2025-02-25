@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="LOG_DINO")
+@Table(name="log_dino")
 public class LogDinoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

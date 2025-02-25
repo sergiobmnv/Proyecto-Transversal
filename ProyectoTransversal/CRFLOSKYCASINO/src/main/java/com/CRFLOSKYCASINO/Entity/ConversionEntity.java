@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "CONVERSION")
+@Table(name = "conversion")
 public class ConversionEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

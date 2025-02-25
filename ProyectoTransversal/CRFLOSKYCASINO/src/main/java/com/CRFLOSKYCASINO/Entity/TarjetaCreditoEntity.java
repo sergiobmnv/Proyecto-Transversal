@@ -5,7 +5,7 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "TARJETA_CREDITO")
+@Table(name = "tarjeta_credito")
 public class TarjetaCreditoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
