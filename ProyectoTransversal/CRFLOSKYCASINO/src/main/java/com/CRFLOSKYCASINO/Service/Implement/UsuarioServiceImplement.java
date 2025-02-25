@@ -42,25 +42,25 @@ public class UsuarioServiceImplement implements UsuarioService {
     }
 
     @Override
-    public UsuarioDTO validarUsuario(UsuarioEntity usuario,String pwd){
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
-        if(usuario.getPwd().equals(pwd)){
-            usuarioDTO = new UsuarioDTO();
-            usuarioDTO.setUsername(usuario.getUsername());
-            usuarioDTO.setPwd(usuario.getPwd());
-            usuarioDTO.setEmail(usuario.getEmail());
-            usuarioDTO.setNombre(usuario.getNombre());
-            usuarioDTO.setApellido(usuario.getApellido());
-            usuarioDTO.setDni(usuario.getDni());
-            usuarioDTO.setFechaNacimiento(usuario.getFechaNacimiento());
-            usuarioDTO.setMonedero(usuario.getMonedero());
-            usuarioDTO.setSaldo(usuario.getSaldo());
-            usuario.setVip(usuario.isVip());
-            System.out.println("Usuario Encontrado para Login: " +usuarioDTO);
-            return usuarioDTO;
-        }else{
-           return usuarioDTO; 
-        }
+public UsuarioDTO validarUsuario(UsuarioEntity usuario, String pwd) {
+    if (usuario == null || !usuario.getPwd().equals(pwd)) {
+        return null; // Si no existe o la contraseña no coincide, devolvemos null
     }
+
+    UsuarioDTO usuarioDTO = new UsuarioDTO();
+    usuarioDTO.setUsername(usuario.getUsername());
+    usuarioDTO.setPwd(usuario.getPwd());
+    usuarioDTO.setEmail(usuario.getEmail());
+    usuarioDTO.setNombre(usuario.getNombre());
+    usuarioDTO.setApellido(usuario.getApellido());
+    usuarioDTO.setDni(usuario.getDni());
+    usuarioDTO.setFechaNacimiento(usuario.getFechaNacimiento());
+    usuarioDTO.setMonedero(usuario.getMonedero());
+    usuarioDTO.setSaldo(usuario.getSaldo());
+    usuarioDTO.setVip(usuario.isVip());
+
+    return usuarioDTO;
+}
+
     
 }
