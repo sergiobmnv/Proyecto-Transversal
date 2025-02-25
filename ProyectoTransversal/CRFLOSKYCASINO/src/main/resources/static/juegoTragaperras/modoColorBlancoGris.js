@@ -3,10 +3,10 @@ var blancoNegro = document.getElementById("botonBlancoNegro").addEventListener("
     // Cambiar el fondo de la página (imagen)
     if (document.body.classList.contains('blancoNegro')) {
         // Si está en modo blanco y negro, cambiar la imagen a la original
-        document.body.style.backgroundImage = "url('../assets/fondoMenu.jpg')";
+        document.body.style.backgroundImage = "url('/Assets/juegoTragaperras/fondoMenu.jpg')";
     } else {
         // Si está en modo color, cambiar la imagen a la modificada
-        document.body.style.backgroundImage = "url('../assets/fondoOscuro.jpg')";
+        document.body.style.backgroundImage = "url('/Assets/juegoTragaperras/fondoOscuro.jpg')";
     }
 
     // Cambiar el color de fondo de los botones
