@@ -1,22 +1,22 @@
 // Función para verificar combinaciones ganadoras
 // Lista de imágenes de símbolos
 const combinaciones = [
-    'assets/image1.png',
-    'assets/image2.png',
-    'assets/image3.png',
-    'assets/image4.png',
-    'assets/image5.png',
-    'assets/image6.png'
+    '/Assets/juegoTragaperras/image1.png',
+    '/Assets/juegoTragaperras/image2.png',
+    '/Assets/juegoTragaperras/image3.png',
+    '/Assets/juegoTragaperras/image4.png',
+    '/Assets/juegoTragaperras/image5.png',
+    '/Assets/juegoTragaperras/image6.png'
 ];
 
 // Premios asociados a las imágenes
 const premios = {
-    'assets/image1.png': 10,
-    'assets/image2.png': 15,
-    'assets/image3.png': 20,
-    'assets/image4.png': 25,
-    'assets/image5.png': 30,
-    'assets/image6.png': 35
+    '/Assets/juegoTragaperras/image1.png': 10,
+    '/Assets/juegoTragaperras/image2.png': 15,
+    '/Assets/juegoTragaperras/image3.png': 20,
+    '/Assets/juegoTragaperras/image4.png': 25,
+    '/Assets/juegoTragaperras/image5.png': 30,
+    '/Assets/juegoTragaperras/image6.png': 35
 };
 
 // Función para verificar combinaciones ganadoras

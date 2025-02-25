@@ -228,12 +228,12 @@ function iniciarGiro() {
 
 // Función para hacer girar las celdas
 const simbolos = [
-    "assets/image1.png",
-    "assets/image2.png",
-    "assets/image3.png",
-    "assets/image4.png",
-    "assets/image5.png",
-    "assets/image6.png"
+    "/Assets/juegoTragaperras/image1.png",
+    "/Assets/juegoTragaperras/image2.png",
+    "/Assets/juegoTragaperras/image3.png",
+    "/Assets/juegoTragaperras/image4.png",
+    "/Assets/juegoTragaperras/image5.png",
+    "/Assets/juegoTragaperras/image6.png"
 ];
 
 function girarCeldas() {

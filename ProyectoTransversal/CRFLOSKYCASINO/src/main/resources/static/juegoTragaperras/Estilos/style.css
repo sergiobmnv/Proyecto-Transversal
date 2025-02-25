@@ -1,5 +1,5 @@
 body {
-    background-image: url("../assets/fondoMenu.jpg");
+    background-image: url("/Assets/juegoTragaperras/fondoMenu.jpg");
     background-size: cover;
     background-position: center;
     transition: filter 0.3s ease;
@@ -229,7 +229,7 @@ marquee {
 /* Modo Blanco y Negro */
 body.blancoNegro {
     filter: grayscale(100%);
-    background-image: url('assets/Fondo-Body.jpg');
+    background-image: url('/Assets/juegoTragaperras/Fondo-Body.jpg');
 }
 
 /* Estilos para el botón */
