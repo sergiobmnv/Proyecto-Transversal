@@ -1,6 +1,8 @@
 package com.CRFLOSKYCASINO.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.CRFLOSKYCASINO.Entity.UsuarioEntity;
 import com.CRFLOSKYCASINO.Model.UsuarioDTO;
 import com.CRFLOSKYCASINO.Service.UsuarioService;
+
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/usuario")
@@ -32,24 +36,32 @@ public class UsuarioController {
         return "USUARIO REGISTRADO CORRECTAMENTE";
     }
 
-    @GetMapping("/{username}/{pwd}")
+	@GetMapping("/{username}/{pwd}")
 	public String iniciarSesion(@PathVariable("username") String username, 
-			@PathVariable("pwd") String pwd) {
+								@PathVariable("pwd") String pwd) {
 		UsuarioEntity usuario = usuarioService.encontrarPorUsuario(username);
-		UsuarioDTO usuarioDTO = new UsuarioDTO();
-		String respuesta;
-		if(usuario==null) {
-			respuesta = "404";
-		}else {
-			 usuarioDTO = usuarioService.validarUsuario(usuario, pwd);
-			 if(usuarioDTO.getPwd()==null) {
-				 respuesta = "PWDNF";
-			 }else {
-				 respuesta = "OK";
-			 }
+	
+		if (usuario == null) {
+			System.out.println("Usuario no encontrado"); // DEBUG
+			return "404";
 		}
-		System.out.println("|| AL GET VA -->" +respuesta);
-		return respuesta;
+	
+		UsuarioDTO usuarioDTO = usuarioService.validarUsuario(usuario, pwd);
+		
+		if (usuarioDTO.getPwd() == null) {
+			System.out.println("Contraseña incorrecta"); // DEBUG
+			return "PWDNF";
+		} else {
+			System.out.println("Usuario autenticado correctamente"); // DEBUG
+			return "OK";
+		}
 	}
+	
+
+@GetMapping("/menuRegistrado/menuRegistrado")
+    public String mostrarLobbyRegistrado(){
+        
+        return "menuRegistrado/menuRegistrado";
+    }
 
 }

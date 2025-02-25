@@ -126,23 +126,39 @@ document.getElementById("registroForm").addEventListener('submit', function(even
 });
 
 function submitGet() {
+    event.preventDefault(); // Asegura que el formulario no se envíe automáticamente
+
     const username = $("#usernameLogin").val();
     const pwd = $("#pwdLogin").val();
+
+    console.log("Enviando solicitud con usuario:", username, " y contraseña:", pwd); // DEBUG
+
     $.ajax({
         type: "GET",
         url: `/usuario/${username}/${pwd}`,
         success: function(response) {
-            if (response == "OK") {
-                showExitoModal("Usuario encontrado.");
-                window.location.href = "lobbyCasino.html";
-            } else if (response == "404") {
+            console.log("Respuesta del servidor:", response); // DEBUG
+
+            if (response === "OK") {
+                showExitoModal("Usuario encontrado. Redirigiendo...");
+                
+                // Guardar usuario en localStorage
+                localStorage.setItem("usuario", JSON.stringify({ username: username }));
+
+                setTimeout(() => {
+                    window.location.href = "/menuRegistrado/menuRegistrado.html";
+                }, 2000);
+            } else if (response === "404") {
                 showErrorModal("Usuario no encontrado.");
-            } else if (response == "PWDNF") {
+            } else if (response === "PWDNF") {
                 showErrorModal("Contraseña incorrecta.");
             }
         },
         error: function(error) {
             console.error("Error en la solicitud AJAX (GET):", error);
+            showErrorModal("Error de conexión con el servidor.");
         }
     });
 }
+
+
